@@ -14,7 +14,7 @@ class SwiperTest{
    init(){
       console.log('00000')
       this.mySwiper = new Swiper('.swiper-container', {
-         observer: true,//2
+         //observer: true,//2
          slidesPerView : this.slidesPerView,
          slidesPerGroup : this.slidesPerGroup
       })
@@ -25,16 +25,18 @@ class SwiperTest{
          this.mySwiper.slidePrev();//2
       })
       $('.arrow-right').on('click', (e) => {
-         e.preventDefault()
+         e.preventDefault();
          //this.mySwiper.swipeNext();//1
          this.mySwiper.slideNext();//2
       })
    }
    bindEvent(){
+      //使用swiper2.js，resize时会自动更改个数，不需要重新设置。如果设置可以使用onResize();
       $(window).on('resize', ()=>{
          console.log('resize')
          let clientWidth = $('.swiper-container').width();
          this.mySwiper.params.slidesPerView=this.mySwiper.params.slidesPerGroup=Math.floor(clientWidth/72);
+         this.mySwiper.onResize();//2
          //this.mySwiper.reInit();//1
          //this.mySwiper.swipeTo(0,0);//1
          this.mySwiper.slideTo(0,0);//2
