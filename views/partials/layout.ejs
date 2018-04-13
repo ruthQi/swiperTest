@@ -7,6 +7,18 @@
     <meta name="description" content="">
     <title><%-blocks.page_title%></title>
     <link rel="stylesheet" href="<%-blocks.page_css%>">
+    <script>
+        (function(){
+          var doc = document.documentElement;
+          var width = doc.getBoundingClientRect().width;
+          if(!/ipod|iphone|ipad|android|coolpad|mmp|smartphone|midp|wap|xoom|symbian|j2me|blackberry|win ce/i.test(navigator.userAgent)) {
+             width = 750;
+          }
+          var fontSize = width / 7.5;
+          fontSize = fontSize < 166 ? fontSize : 166;
+          doc.style.fontSize = fontSize + 'px';
+       })();
+    </script>
 </head>
 <body>
     <%- body -%>
