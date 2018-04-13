@@ -9,4 +9,7 @@ module.exports = function(app) {
     app.use('/swiper', swiper);
     app.use('/effect', effect);
     app.use('/scroll', scroll);
+    app.use('/column', function(req, res, next) {
+        res.render('pages/column');
+    })
 };
