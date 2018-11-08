@@ -3,5 +3,36 @@
 <% block('page_css', '/styles/pages/index.css') -%>
 <% block('page_js', '/scripts/pages/index.js') -%>
 
-<h1><%= page%> page!</h1>
+<script type="text/javascript">
+   (function () {
+      var doc = document.documentElement;
+      var width = doc.getBoundingClientRect().width;
+      if (!/ipod|iphone|ipad|android|coolpad|mmp|smartphone|midp|wap|xoom|symbian|j2me|blackberry|win ce/i.test(navigator.userAgent)) {
+         width = 750;
+      }
+      var fontSize = width / 7.5;
+      fontSize = fontSize < 166 ? fontSize : 166;
+      doc.style.fontSize = fontSize + 'px';
+   })();
+</script>
+<div class="swiper-container">
+   <div class="swiper-wrapper">
+      <div class="swiper-slide">
+         <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+         </ul>
+      </div>
+      <div class="swiper-slide">2</div>
+      <div class="swiper-slide">3</div>
+   </div>
+</div>
+
+<!-- <h1><%= page%> page!</h1> -->
 <div id="example"></div>
